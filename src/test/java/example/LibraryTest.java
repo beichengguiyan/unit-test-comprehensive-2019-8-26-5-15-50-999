@@ -42,48 +42,48 @@ class LibraryTest {
         Assertions.assertEquals(value, mockedList.get(0));
     }
 
-    @Test
-    @SuppressWarnings("unchecked")
-    void test_mock_verify() {
-        // mock creation
-        List<String> mockedList = mock(List.class);
-        // using mock object - it does not throw any "unexpected interaction" exception
-        mockedList.add("one");
-        mockedList.clear();
-        // selective, explicit, highly readable verification
-        verify(mockedList).add("one");
-        verify(mockedList).clear();
-    }
-
-    @Test
-    void groupedAssertions() {
-        // In a grouped assertion all assertions are executed, and any
-        // failures will be reported together.
-        String firstName = "John";
-        String lastName = "Doe";
-
-        assertAll("person",
-                () -> assertEquals("John", firstName),
-                () -> assertEquals("Doe", lastName)
-        );
-    }
-
-    @Test
-    void exceptionTesting() {
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            throw new IllegalArgumentException("a message");
-        });
-        Assertions.assertEquals("a message", exception.getMessage());
-    }
-
-    @Test
-    @Disabled
-    void timeoutExceeded() {
-        // The following assertion fails with an error message similar to:
-        // execution exceeded timeout of 10 ms by 91 ms
-        assertTimeout(ofMillis(10), () -> {
-            // Simulate task that takes more than 10 ms.
-            Thread.sleep(100);
-        });
-    }
+//    @Test
+//    @SuppressWarnings("unchecked")
+//    void test_mock_verify() {
+//        // mock creation
+//        List<String> mockedList = mock(List.class);
+//        // using mock object - it does not throw any "unexpected interaction" exception
+//        mockedList.add("one");
+//        mockedList.clear();
+//        // selective, explicit, highly readable verification
+//        verify(mockedList).add("one");
+//        verify(mockedList).clear();
+//    }
+//
+//    @Test
+//    void groupedAssertions() {
+//        // In a grouped assertion all assertions are executed, and any
+//        // failures will be reported together.
+//        String firstName = "John";
+//        String lastName = "Doe";
+//
+//        assertAll("person",
+//                () -> assertEquals("John", firstName),
+//                () -> assertEquals("Doe", lastName)
+//        );
+//    }
+//
+//    @Test
+//    void exceptionTesting() {
+//        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+//            throw new IllegalArgumentException("a message");
+//        });
+//        Assertions.assertEquals("a message", exception.getMessage());
+//    }
+//
+//    @Test
+//    @Disabled
+//    void timeoutExceeded() {
+//        // The following assertion fails with an error message similar to:
+//        // execution exceeded timeout of 10 ms by 91 ms
+//        assertTimeout(ofMillis(10), () -> {
+//            // Simulate task that takes more than 10 ms.
+//            Thread.sleep(100);
+//        });
+//    }
 }
